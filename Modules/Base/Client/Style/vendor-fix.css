@@ -1,0 +1,67 @@
+[ng-cloak]
+{
+    display: block !important;
+}
+
+.ui.input input {
+	width: 100%;
+}
+
+.ui.buttons .or:before {
+	content: "ou";	
+}
+
+html, body {
+	height: 100%;
+}
+.ui.grid {
+	height: 100%;
+}
+
+.dimmed.dimmable>:not(.dimmer) {
+	filter: blur(1px) grayscale(.4);
+	-webkit-filter: blur(1px) grayscale(.4);
+}
+
+.ui.dimmer {
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, .6);
+}
+
+.ui.loading.form:before {
+	background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.ui.grid header.column {
+	padding-right: 0px !important;
+}
+
+.ui.menu {
+    font-size: 1.1rem;
+	-moz-border-radius: 0px;
+	-o-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.ui.menu > .item:first-child {
+	-moz-border-radius: 0px;
+	-o-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.ui.menu:first-child,
+.ui.menu.vertical + .ui.menu {
+	margin: 0px;
+}
+
+.ui.progress.attached, 
+.ui.progress.attached .bar {
+	-moz-border-radius: 0px;
+	-o-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	background-color: #b5b5b5;
+}
