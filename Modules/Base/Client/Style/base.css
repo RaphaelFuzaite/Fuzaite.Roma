@@ -464,3 +464,26 @@
 	padding: 0.5em;
 	border: none;
 }
+
+.main-content {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	margin-left: 373px;
+}
+
+.main-content .icon.content {
+	cursor: pointer;
+}
+
+.main-content > section.container {
+	position: relative;
+	margin: 0 25px 0 25px;
+}
+
+.ui.grid section.main-section.column {
+	padding-left: 0px;
+}
+
+.ui.main.menu {
+	height: 58px;
+}
