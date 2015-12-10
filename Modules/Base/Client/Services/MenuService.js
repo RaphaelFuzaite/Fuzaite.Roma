@@ -6,29 +6,13 @@ angular.module('Base').service('Menu', [
 		
 		this.Menus = {
 			Itens: [],
-			Extendido: false,
-			Auxilio: false,
-			// Navigation: {
-			// 	Class: function() {
-			// 		return this.GetMenuState() ? 'eight' : 'fourteen';
-			// 	}
-			// },			
-			// FastAccess: {
-			// 	Class: function() { 
-			// 		return this.GetMenuState() ? 'eight' : 'two';
-			// 	}
-			// },
-			// Main: {
-			// 	Class: function() {
-			// 		this.GetHelperState() ? 'nine' : 'twelve';
-			// 	}	
-			// },		
-			// Helper: {
-			// 	Class: function() {
-			// 		this.GetHelperState() ? 'two' : '';
-			// 	}
-			// }
+			Extendido: true,
+			Auxilio: false
 		};
+		
+		this.BuildBooleanClass = function(func ,firstClass, secondClass) {
+			return func.apply(this) ? firstClass : secondClass;
+		}
 		
 		this.GetMenuState = function() {
 			return this.Menus.Extendido;
@@ -43,7 +27,6 @@ angular.module('Base').service('Menu', [
 			
 			self.Titulo = obj.Titulo;
 			self.Link 	= obj.Link;
-			self.Class 	= obj.Class;
 			self.Icon 	= obj.Icon;
 			self.Tipo 	= obj.Tipo;		
 		};

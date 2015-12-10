@@ -37,17 +37,17 @@
 <body class="ng-cloak">
 	<div class="ui grid">
 		<nav class="four wide column bg-midnight-black left-content">
-			<div class="ui grid">
+			<div class="ui grid main-content">
 				<div layout-navigation-bar></div>
 				<div layout-fast-access></div>
 			</div>
 		</nav>
-		<div class="nine wide column bg-light main-content">
-			<div layout-main-header></div>
-		</div>
-		<nav class="three wide column right-content">
-			
-		</nav>		
+		<section class="twelve wide column bg-light main-content">
+			<div class="ui grid">
+				<div layout-main-header></div>
+				<div layout-helper></div>
+			</div>
+		</section>
 	</div>
 	
 	<!--Load The Socket.io File-->

@@ -383,6 +383,11 @@
 	font-size: 13px;
 	padding: 12px 10px 12px 30px;
 	line-height: 15px;
+	height: 39px;
+}
+
+.ui.vertical.menu .menu .item:first-child {
+	height: auto;
 }
 
 .ui.vertical.menu .item > i.icon {
@@ -489,4 +494,37 @@
 	height: 58px;
 	border: none !important;
 	box-shadow: none !important;
+}
+
+.main-content .menu .input {
+	opacity: 1;
+	transform: translateX(0%);
+	transition: all 0.4s ease;
+}
+
+
+.main-content .visibility-off .menu .input {
+	opacity: 0;
+	transform: translateX(30%);
+	transition: all 0.4s ease;
+}
+
+.main-content .menu > .header,
+.main-content .menu a > span,
+.main-content .menu .input .icon  {
+	opacity: 1;
+	transition: all 0.4s ease;
+}
+
+.main-content .visibility-off .menu > .header,
+.main-content .visibility-off .menu a > span,
+.main-content .visibility-off .menu .input .icon  {
+	opacity: 0;
+	margin-left: -90px;
+	transition: all 0.01s ease-out;
+}
+
+.main-content  > .column {
+	transform: translateX(0%);
+	transition: all 0.4s ease;
 }
