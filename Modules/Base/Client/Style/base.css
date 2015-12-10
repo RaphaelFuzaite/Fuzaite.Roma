@@ -461,7 +461,7 @@
 }
 
 .vertical.menu .ui.accordion .content {
-	padding: 0.5em;
+	padding: 0.95em;
 	border: none;
 }
 
@@ -484,6 +484,9 @@
 	padding-left: 0px;
 }
 
-.ui.main.menu {
+.ui.main.menu,
+.ui.main.menu > .ui.menu {
 	height: 58px;
+	border: none !important;
+	box-shadow: none !important;
 }
