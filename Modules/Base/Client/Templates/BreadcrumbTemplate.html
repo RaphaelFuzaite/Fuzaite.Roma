@@ -1,0 +1,4 @@
+<div class="ui breadcrumb">
+	<a ng-repeat="step in steps | limitTo:(steps.length-1)" class="section" href="{{step.ncyBreadcrumbLink}}" ng-bind-html="step.ncyBreadcrumbLabel | rawHtml"></a>
+	<div ng-repeat="step in steps | limitTo:-1" class="active section" ng-bind-html="step.ncyBreadcrumbLabel | rawHtml"></div>
+</div>

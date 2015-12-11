@@ -451,7 +451,7 @@
 }
 
 .vertical.menu .item.profile .ui.card .extra { 
-	border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+	border-top: 1px solid #444 !important;
 }
 
 .vertical.menu .ui.accordion,
@@ -470,7 +470,7 @@
 	border: none;
 }
 
-.main-content {
+.four + .main-content {
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 	margin-left: 373px;
@@ -482,7 +482,7 @@
 
 .main-content > section.container {
 	position: relative;
-	margin: 0 25px 0 25px;
+	margin: 0 25px 0 15px;
 }
 
 .ui.grid section.main-section.column {
@@ -496,35 +496,54 @@
 	box-shadow: none !important;
 }
 
-.main-content .menu .input {
+.nav-content .menu .input {
 	opacity: 1;
 	transform: translateX(0%);
 	transition: all 0.4s ease;
 }
 
 
-.main-content .visibility-off .menu .input {
+.nav-content .visibility-off .menu .input {
 	opacity: 0;
 	transform: translateX(30%);
 	transition: all 0.4s ease;
 }
 
-.main-content .menu > .header,
-.main-content .menu a > span,
-.main-content .menu .input .icon  {
+.nav-content .menu > .header,
+.nav-content .menu a > span,
+.nav-content .menu .input .icon  {
 	opacity: 1;
 	transition: all 0.4s ease;
 }
 
-.main-content .visibility-off .menu > .header,
-.main-content .visibility-off .menu a > span,
-.main-content .visibility-off .menu .input .icon  {
+.nav-content .visibility-off .menu > .header,
+.nav-content .visibility-off .menu a > span,
+.nav-content .visibility-off .menu .input .icon  {
 	opacity: 0;
 	margin-left: -90px;
 	transition: all 0.01s ease-out;
 }
 
-.main-content  > .column {
+.nav-content  > .column {
 	transform: translateX(0%);
 	transition: all 0.4s ease;
+}
+
+.vertical.menu .buttons button {
+	transition: all 0.5s ease-out;
+	border-radius: 0px !important;
+}
+
+.vertical.menu .buttons button:hover{
+	background-color: #4B5F73 !important;
+	transition: all 0.5s ease-out;
+}
+
+header nav.attached.segment {
+	margin-left: 0px !important;
+    margin-right: 0px !important;
+    border: none !important;
+    box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15) !important;
+	padding-top: 10px;
+    padding-bottom: 10px;
 }

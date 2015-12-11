@@ -12,7 +12,7 @@ angular.module('Base').service('Menu', [
 		
 		this.BuildBooleanClass = function(func ,firstClass, secondClass) {
 			return func.apply(this) ? firstClass : secondClass;
-		}
+		};
 		
 		this.GetMenuState = function() {
 			return this.Menus.Extendido;

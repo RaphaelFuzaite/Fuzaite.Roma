@@ -37,15 +37,18 @@
 <body class="ng-cloak">
 	<div class="ui grid">
 		<nav class="four wide column bg-midnight-black left-content">
-			<div class="ui grid main-content">
+			<div class="ui grid nav-content">
 				<div layout-navigation-bar></div>
-				<div layout-fast-access></div>
+				<div layout-main-header></div>
 			</div>
 		</nav>
 		<section class="twelve wide column bg-light main-content">
-			<div class="ui grid">
-				<div layout-main-header></div>
-				<div layout-helper></div>
+			<div class="main-content">
+				<section layout-content-definition></section>
+				<section class="container" ng-cloak>
+					{% block content %}{% endblock %}
+				</section>
+				<div component-modal></div>
 			</div>
 		</section>
 	</div>

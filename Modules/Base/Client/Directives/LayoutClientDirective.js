@@ -33,8 +33,7 @@ angular.module('Base').directive('layoutNavigationBar', ['Menu', function(Menu) 
 				};
 			}
 		};
-	}
-]).directive('layoutFastAccess', ['Menu', function(Menu) {
+}]).directive('layoutFastAccess', ['Menu', function(Menu) {
 		return {
 			restrict: 'A',
 			replace: true,
@@ -48,8 +47,7 @@ angular.module('Base').directive('layoutNavigationBar', ['Menu', function(Menu) 
 				};
 			}
 		};
-	}
-]).directive('layoutMainHeader', ['Menu', function(Menu) {
+}]).directive('layoutMainHeader', ['Menu', function(Menu) {
 	return {
 		restrict: 'A',
 		replace: true,
@@ -59,10 +57,20 @@ angular.module('Base').directive('layoutNavigationBar', ['Menu', function(Menu) 
 			$scope.Menu = Menu;
 			$scope.Size = function() {
 				elem.removeAttr('class');
-				elem.addClass(Menu.BuildBooleanClass(Menu.GetHelperState, 'nine wide column', 'sixteen wide column')); 
+				elem.addClass(Menu.BuildBooleanClass(Menu.GetMenuState, 'eight wide column', 'thirteen wide column')); 
 			};
 		}
-	}
+	};
+}]).directive('layoutContentDefinition', ['Menu', function(Menu) {
+	return {
+		restrict: 'A',
+		replace: true,
+		scope: {},
+		templateUrl: '/Modules/Base/Templates/ContentDefinitionTemplate.html',
+		link: function($scope, elem, attr) {
+			$scope.Menu = Menu;
+		}
+	};
 }]).directive('layoutHelper', ['Menu', function(Menu) {
 	return {
 		restrict: 'A',
@@ -76,5 +84,5 @@ angular.module('Base').directive('layoutNavigationBar', ['Menu', function(Menu) 
 				elem.addClass(Menu.BuildBooleanClass(Menu.GetHelperState, 'three wide column', 'wide column')); 
 			};
 		}
-	}
-}]);;
+	};
+}]);

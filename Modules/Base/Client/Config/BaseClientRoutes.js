@@ -50,7 +50,7 @@ angular.module('Base').config(['$stateProvider', '$urlRouterProvider', function(
 	}
 ]).config(['$breadcrumbProvider',function($breadcrumbProvider) {
     $breadcrumbProvider.setOptions({
-		templateUrl: '/Modules/Base/Templates/Breadcrumb.html'
+		templateUrl: '/Modules/Base/Templates/BreadcrumbTemplate.html'
     });
 }]).run([function () {
     //Authentication.FetchUser();
