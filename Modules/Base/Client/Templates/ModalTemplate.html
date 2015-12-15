@@ -1,0 +1,14 @@
+<div class="ui modal {{ Modal.Tamanho }}">
+  <div class="header">  
+    {{ Modal.Titulo | uppercase }}
+  </div>
+  <div class="content">
+    <div class="ui" component-modal-content></div>
+  </div>
+  <div class="actions">
+    <div class="ui button {{ item.Classes }}" ng-repeat="item in Modal.Acoes" ng-click="item.Click()">
+      {{ item.Texto }}
+      <i class="icon {{ item.Icone }}" ng-if="item.Icone"></i>
+    </div>
+  </div>
+</div>
