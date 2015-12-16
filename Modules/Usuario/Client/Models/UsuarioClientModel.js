@@ -5,14 +5,16 @@ angular.module('Usuario').factory('UsuarioClientModel', ['Authentication', funct
 	var User = function (data) {
 		var self = this;
 		
-		self._Id = data._Id;
-		self.PrimeiroNome = data.PrimeiroNome;
-		self.UltimoNome = data.UltimoNome;
-		self.Email = data.Email;
-		self.TipoDeUsuario = data.TipoDeUsuario;
-		self.NomeDeUsuario = data.NomeDeUsuario;
-		self.Senha = data.Senha;
-		self.ConfirmacaoDeSenha = data.ConfirmacaoDeSenha;
+		if(angular.isObject(data)) {
+			self._Id = data._Id;
+			self.PrimeiroNome = data.PrimeiroNome;
+			self.UltimoNome = data.UltimoNome;
+			self.Email = data.Email;
+			self.TipoDeUsuario = data.TipoDeUsuario;
+			self.NomeDeUsuario = data.NomeDeUsuario;
+			self.Senha = data.Senha;
+			self.CategoriaDeUsuario = data.CategoriaDeUsuario;
+		}
 		
 		return self;
 	};
@@ -69,13 +71,13 @@ angular.module('Usuario').factory('UsuarioClientModel', ['Authentication', funct
 					prompt: 'A senha deve conter ao menos 4 caracteres'
 				}]
 			},
-			confirmacaoDeSenha: {
-				identifier: 'ConfirmacaoDeSenha',
+			categoriaDeUsuario: {
+				identifier: 'CategoriaDeUsuario',
 				rules: [{
-					type: 'match[Senha]',
-					prompt: 'As senhas não combinam'
+					type: 'empty',
+					prompt: 'Selecione uma opção'
 				}]
-			}
+			},
 		};
 	};
 	

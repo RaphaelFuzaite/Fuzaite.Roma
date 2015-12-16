@@ -1,23 +1,50 @@
-<div class="authentication blurring ui grid" ng-show="!Authentication">
-	<div class="ui modal fullscreen">
+<div class="ui grid" ng-show="!Authentication">
+	<div class="ui basic modal fullscreen authentication gradient">
 		<div class="content">
-			<div class="ui grid">
-				<div class="right floated left aligned six wide column">
+			<div class="ui two column centered grid">
+				<div class="four wide column" ng-hide="NewAccount">
+					<div class="ui attached segment">
+						<form class="ui form">							
+							<div class="sixteen wide field">
+								<label>Usuário</label>
+								<div class="ui icon input">
+									<input type="text" placeholder="Usuário" id="NomeDeUsuario" name="NomeDeUsuario" ng-model="Credenciais.NomeDeUsuario">
+									<i class="user icon"></i>
+								</div>
+							</div>
+							
+							<div class="sixteen wide field">
+								<label>Senha</label>
+								<div class="ui icon input">
+									<input type="password" placeholder="Senha" id="Senha" name="Senha" ng-model="Credenciais.Senha">
+									<i class="lock icon"></i>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="ui clearing attached secondary segment">
+						<button class="fluid ui teal button" ng-click="Signin()">
+							ENTRAR
+						</button>
+						<div class="ui ignored divider"></div>
+						Você ainda não possui uma conta? <br> <a ng-click="Swap()">Criar cadastro</a>
+					</div>
+				</div>				
+				<div class="five wide column" ng-show="NewAccount">
 					<div class="ui attached segment">
 						<form class="ui form">
 							<div class="field">
 								<label>Nome</label>
 								<div class="two fields">
 									<div class="field">
-										<div class="ui icon input">
+										<div class="ui input">
 											<input type="text" placeholder="Primeiro Nome" id="PrimeiroNome" name="PrimeiroNome" ng-model="Credenciais.PrimeiroNome">
-											<i class="protect icon"></i>
 										</div>
 									</div>
 									<div class="field">
 										<div class="ui icon input">
 											<input type="text" placeholder="Último Nome" id="UltimoNome" name="UltimoNome" ng-model="Credenciais.UltimoNome">
-											<i class="protect icon"></i>
+											<i class="user icon"></i>
 										</div>
 									</div>
 								</div>
@@ -31,48 +58,42 @@
 								</div>
 							</div>
 							
-							<div class="three fields">
-								<div class="field">
-									<label>Usuário</label>
-									<div class="ui icon input">
-										<input type="text" placeholder="Usuário" id="NomeDeUsuario" name="NomeDeUsuario" ng-model="Credenciais.NomeDeUsuario">
-										<i class="user icon"></i>
-									</div>
-								</div>
-								<div class="field">
-									<label>Senha</label>
-									<div class="ui icon input">
-										<input type="password" placeholder="Senha" id="Senha" name="Senha" ng-model="Credenciais.Senha">
-										<i class="lock icon"></i>
-									</div>
-								</div>
-								<div class="field">
-									<label>Confirme a Senha</label>
-									<div class="ui icon input">
-										<input type="password" placeholder="Confirmação de Senha" id="ConfirmacaoDeSenha" name="ConfirmacaoDeSenha" ng-model="Credenciais.ConfirmacaoDeSenha">
-										<i class="lock icon"></i>
-									</div>
+							<div class="sixteen wide field">
+								<label>Usuário</label>
+								<div class="ui icon input">
+									<input type="text" placeholder="Usuário" id="NomeDeUsuario" name="NomeDeUsuario" ng-model="Credenciais.NomeDeUsuario">
+									<i class="protect icon"></i>
 								</div>
 							</div>
 							
-							<div class="nine wide field">
+							<div class="sixteen wide field">
+								<label>Senha</label>
+								<div class="ui icon input">
+									<input type="password" placeholder="Senha" id="Senha" name="Senha" ng-model="Credenciais.Senha">
+									<i class="lock icon"></i>
+								</div>
+							</div>
+							
+							<div class="sixteen wide field">
 								<label>Categoria</label>
 								<div class="ui input">
-									<select class="ui dropdown" ng-model="Credenciais.CategoriaDeUsuario" id="CategoriaDeUsuario" name="Categoria">
+									<select class="ui dropdown" ng-model="Credenciais.CategoriaDeUsuario" id="CategoriaDeUsuario" name="CategoriaDeUsuario">
 											<option value="">Selecione uma categoria</option>
-											<option ng-repeat="categoria in CategoriasDeUsuarios" value="{{ categoria._id }}">{{ categoria.Nome }}</option>
+											<option ng-repeat="categoria in CategoriasDeUsuario" value="{{ categoria.Valor }}">{{ categoria.Nome }}</option>
 									</select>
 								</div>
 							</div>
+							
+							<div class="ui ignored divider"></div>
+							
+							<buttom type="submit" class="fluid ui teal button" ng-click="Signup()">
+								CADASTRE-SE
+							</button>
 						</form>
 					</div>
 					<div class="ui clearing attached secondary segment">
-						<div class="ui right floated small teal labeled icon button" ng-click="Signup()">
-							<i class="save icon"></i> Salvar
-						</div>
-						<div class="ui right floated small red labeled icon button">
-							<i class="cancel icon"></i> Cancelar
-						</div>
+						Já tenho uma conta! <br> 
+						<a ng-click="Swap()">Login</a>
 					</div>
 				</div>
 			</div>

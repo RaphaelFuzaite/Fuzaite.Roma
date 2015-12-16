@@ -65,3 +65,7 @@ html, body {
 	border-radius: 0px;
 	background-color: #b5b5b5;
 }
+
+a {
+	cursor: pointer;
+}
