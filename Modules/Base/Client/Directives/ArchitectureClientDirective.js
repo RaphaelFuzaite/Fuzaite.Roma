@@ -14,28 +14,23 @@ angular.module('Base').directive('architectureAuthentication', [function() {
 				});
 				
 				$scope.FormSignin = new Form({
-					Model: Usuario ,
+					Name: 'AuthenticationFormSignin',
+					Model: Usuario,
 					Url: '/api/Auth/Signin',
 					Method: 'post'
 				});
 				
-				$scope.isInvalid = function() {
-					var Form = $(ApplicationConfiguration.VendorsInitializer.Form.Validation(Usuario.GetRules()));
-					return !Form.form('validate form');
-				};
-				
-				$scope.Signin = function () {
-					console.log(this.isValid());
-				};
-				
-				$scope.Signup = function () {
-					console.log(this.isValid());
-				};
+				$scope.FormSignup = new Form({
+					Name: 'AuthenticationFormSignup',
+					Model: Usuario,
+					Url: '/api/Auth/Signup',
+					Method: 'post'
+				});
 				
 				$scope.IsNewAccount = false;
 				$scope.Swap = function(){
 					$scope.NewAccount = !$scope.NewAccount;
-				}
+				};
 			}],
 			link: {
 				post: function ($scope, element, attrs) {

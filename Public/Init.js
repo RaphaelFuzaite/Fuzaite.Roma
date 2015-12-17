@@ -7,8 +7,11 @@ var InitVendors = (function () {
 			Element: function() {
 				$('.ui.checkbox').checkbox();
 			},
-			Validation: function(model) {
-				return $('.ui.form').form({ on: 'blur', inline: 'true', fields: model });
+			ValidationByElement: function(formElement, model) {
+				return $(formElement).form({ on: 'blur', inline: 'true', fields: model });
+			},
+			ValidationByClass: function(formName, model) {
+				return $('.ui.form[name=' + formName + ']').form({ on: 'blur', inline: 'true', fields: model });
 			}
 		},
 		Layout: {

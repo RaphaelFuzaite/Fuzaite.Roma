@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Base').service('Form', ['$http', '$injector', function ($http, $injector) {
+angular.module('Base').service('Form', ['$http', '$injector', '$q', function ($http, $injector, $q) {
 	
 		var Form = function(data) {
 			var self = this;
@@ -14,7 +14,27 @@ angular.module('Base').service('Form', ['$http', '$injector', function ($http, $
 			}
 			
 			self.Model = Model;
-			self.Element = $(ApplicationConfiguration.VendorsInitializer.Form.Validation(self.Model.GetRules()));
+			self.Name = data.Name;
+			
+			self.Deferred = new $q.defer();
+			self.Promise = self.Deferred.promise;
+			
+			self.Promise.then(function(element) {
+
+				self.Element = ApplicationConfiguration.VendorsInitializer.Form.ValidationByElement(element, self.Model.GetRules());	
+				self.Element.bind('submit', function(event) {
+				
+					if (!self.IsValid()) return false;
+	
+					self.AlternateFormLoading();				
+					$http[self.Action.Method](self.Action.Url, self.Model)
+					.success(self.Action.Success)
+					.error(self.Action.Error)
+					.finally(function() {
+						self.AlternateFormLoading();
+					});
+				});
+			});
 			
 			self.Action = {
 				Url: data.Url,
@@ -22,20 +42,6 @@ angular.module('Base').service('Form', ['$http', '$injector', function ($http, $
 				Success: data.Success || function(){ },
 				Error: data.Error || function(){ }
 			};
-
-			self.Element.bind('submit', function(event) {
-				
-				if (!self.IsValid()) return false;
-
-				self.AlternateFormLoading();				
-				$http[self.Action.Method](self.Action.Url, self.Model)
-				.success(self.Action.Success)
-				.error(self.Action.Error)
-				.finally(function() {
-					self.AlternateFormLoading();
-					console.log(self);
-				});
-			});
 			
 			self.Loading = false;
 			self.IsValid = function() {
