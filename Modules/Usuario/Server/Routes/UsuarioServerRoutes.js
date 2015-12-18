@@ -14,7 +14,7 @@ module.exports = function(app) {
 	app.route('/api/Auth/Reset/:token').get(Usuario.ValidateResetToken);
 	app.route('/api/Auth/Reset/:token').post(Usuario.Reset);
 
-	app.route('/api/Auth/Signup').post(Usuario.Signup);
+	app.route('/api/Auth/Signup').put(Usuario.Signup);
 	app.route('/api/Auth/Signin').post(Usuario.Signin);
 	app.route('/api/Auth/Signout').get(Usuario.Signout);
 	

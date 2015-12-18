@@ -23,11 +23,10 @@ angular.module('Base').service('Form', ['$http', '$injector', '$q', function ($h
 
 				self.Element = ApplicationConfiguration.VendorsInitializer.Form.ValidationByElement(element, self.Model.GetRules());	
 				self.Element.bind('submit', function(event) {
-				
 					if (!self.IsValid()) return false;
 	
-					self.AlternateFormLoading();				
-					$http[self.Action.Method](self.Action.Url, self.Model)
+					self.AlternateFormLoading();	
+					$http({ method: self.Action.Method, url: self.Action.Url, data: self.Model })
 					.success(self.Action.Success)
 					.error(self.Action.Error)
 					.finally(function() {

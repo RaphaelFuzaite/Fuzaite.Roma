@@ -5,7 +5,7 @@ angular.module('Base').directive('architectureAuthentication', [function() {
 			restrict: 'A',
 			replace: true,
 			templateUrl: '/Modules/Base/Templates/AuthenticationTemplate.html',
-			controller: ['$scope', '$http', 'Form','UsuarioClientModel', function($scope, $http, Form, UsuarioClientModel){
+			controller: ['$scope', '$http', '$location', 'Form', 'UsuarioClientModel', function($scope, $http, $location, Form, UsuarioClientModel){
 				var Usuario = new UsuarioClientModel();
 				$scope.Authentication = Usuario.Authentication.Get();
 				
@@ -17,14 +17,28 @@ angular.module('Base').directive('architectureAuthentication', [function() {
 					Name: 'AuthenticationFormSignin',
 					Model: Usuario,
 					Url: '/api/Auth/Signin',
-					Method: 'post'
+					Method: 'POST',
+					Success: function(response) {
+						Usuario.Authentication.Fetch(response);
+						$location.path('/');
+					},
+					Error: function(response) {
+						$scope.Error = response.message;
+					}
 				});
 				
 				$scope.FormSignup = new Form({
 					Name: 'AuthenticationFormSignup',
 					Model: Usuario,
 					Url: '/api/Auth/Signup',
-					Method: 'post'
+					Method: 'PUT',
+					Success: function(response) {
+						Usuario.Authentication.Fetch(response);
+						$location.path('/');
+					},
+					Error: function(response) {
+						$scope.Error = response.message;
+					}
 				});
 				
 				$scope.IsNewAccount = false;

@@ -20,6 +20,7 @@ angular.module('Base').directive('uxNgEnter', function() {
     };
 }).directive('ngFormService', function() {
     return function(scope, elem, attr) {
-        scope[attr['ngFormService']].Deferred.resolve(elem);
-    }
+        var ng = 'ngFormService';
+        scope[attr[ng]].Deferred.resolve(elem);
+    };
 });

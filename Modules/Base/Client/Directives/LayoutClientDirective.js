@@ -33,27 +33,17 @@ angular.module('Base').directive('layoutNavigationBar', ['Menu', function(Menu) 
 				};
 			}
 		};
-}]).directive('layoutFastAccess', ['Menu', function(Menu) {
-		return {
-			restrict: 'A',
-			replace: true,
-			templateUrl: '/Modules/Base/Templates/FastAccessTemplate.html',
-			scope: {},
-			link: function($scope, elem, attr) {
-				$scope.Menu = Menu.GetMenu();
-				$scope.Size = function() {
-					elem.removeAttr('class');
-					elem.addClass(Menu.BuildBooleanClass(Menu.GetMenuState, 'eight wide column', 'thirteen wide column')); 
-				};
-			}
-		};
-}]).directive('layoutMainHeader', ['Menu', function(Menu) {
+}]).directive('layoutMainHeader', ['Menu','UsuarioClientModel', function(Menu, UsuarioClientModel) {
 	return {
 		restrict: 'A',
 		replace: true,
 		scope: {},
 		templateUrl: '/Modules/Base/Templates/MainHeaderTemplate.html',
 		link: function($scope, elem, attr) {
+			
+			var Usuario = new UsuarioClientModel();
+			$scope.Authentication = Usuario.Authentication.Get();
+			
 			$scope.Menu = Menu;
 			$scope.Size = function() {
 				elem.removeAttr('class');
