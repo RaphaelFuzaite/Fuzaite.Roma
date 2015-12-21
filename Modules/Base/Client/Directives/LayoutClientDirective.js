@@ -55,11 +55,14 @@ angular.module('Base').directive('layoutNavigationBar', ['Menu', function(Menu) 
 	return {
 		restrict: 'A',
 		replace: true,
-		scope: {},
 		templateUrl: '/Modules/Base/Templates/ContentDefinitionTemplate.html',
-		link: function($scope, elem, attr) {
-			$scope.Menu = Menu;
-		}
+        controller: ['$scope','$state', '$rootScope', function($scope, $state, $rootScope){
+            $scope.Menu = Menu;
+            
+            $rootScope.$on('$stateChangeSuccess', function(){
+                $scope.Title = $state.current.ncyBreadcrumbLabel || $state.current.name;
+            });
+        }]
 	};
 }]).directive('layoutHelper', ['Menu', function(Menu) {
 	return {
