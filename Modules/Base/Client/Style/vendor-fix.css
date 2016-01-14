@@ -69,3 +69,7 @@ html, body {
 a {
 	cursor: pointer;
 }
+
+.inline.fields > .field {
+    line-height: 35px;
+}

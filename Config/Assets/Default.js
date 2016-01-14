@@ -13,6 +13,8 @@ module.exports = {
 				'Public/Lib/angular-animate/angular-animate.js',
 				'Public/Lib/angular-bootstrap/ui-bootstrap.js',
 				'Public/Lib/angular-local-storage/dist/angular-local-storage.js',
+                'Public/Lib/moment/moment.js',
+                'Public/Lib/angular-momentjs/angular-momentjs.js',
 				'Public/Lib/angular-input-mask-i18n/releases/masks.js',
 				'Public/Lib/angular-i18n/angular-locale_pt-br.js',
 				'Public/Lib/semantic-ui/dist/semantic.js',

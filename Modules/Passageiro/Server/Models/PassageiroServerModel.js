@@ -33,12 +33,13 @@ var PassageiroSchema = new Schema({
 	},
     Responsaveis: [{
         _id: { type: Schema.ObjectId },
-        Nome: { type: String, required: 'Informe o nome do responsável' },
+        PrimeiroNome: { type: String, required: 'Informe o primeiro nome do responsável' },
+        UltimoNome: { type: String, required: 'Informe o último nome do responsável' },
         NomeDeUsuario: { type: String },
         GrauDeParentesco: { type: String },
         DataDeNascimento: { type: Date, validate: [validateMajority, 'O responsável deve ser maior de idade'] },
         ResponsavelFinanceiro: { type: Boolean },
-        Sexo: { type: String, enum: ['Masculino', 'Feminino'] }
+        Genero: { type: String, enum: ['Masculino', 'Feminino'] }
     }],
     Condutor: {
         type: Schema.ObjectId,
@@ -48,11 +49,11 @@ var PassageiroSchema = new Schema({
         type: Date,
         required: 'Qual é a data de nascimento?',
     },
-    Sexo: {
+    Genero: {
         type: String,
         enum: ['Masculino', 'Feminino'],
         trim: true,
-		required: 'Qual é o sexo do passageiro?',  
+		required: 'Qual é o gênero do passageiro?',  
     },
     DataDeInscricao: {
 		type: Date,
@@ -85,9 +86,9 @@ var PassageiroSchema = new Schema({
          Serie: { type: String },
          Turma: { type: String },
          AnoLetivo: { type: Number },
+        HorarioDeEntrada: { type: String },
+        HorarioDeSaida: { type: String },
     }],
-    HorarioDeEntrada: { type: String },
-    HorarioDeSaida: { type: String },
     Endereco:{
         CEP: { type: String },
         Rua: { type: String },

@@ -575,3 +575,20 @@ header nav.attached.segment {
     text-align: center;
     speak: none;
 }
+
+.no-animated > .item {
+   -webkit-transition: none !important;
+   transition: none !important;
+}
+
+.text.align.left {
+    text-align: left;
+}
+
+.text.align.center {
+    text-align: center;
+}
+
+.text.align.right {
+    text-align: right;
+}

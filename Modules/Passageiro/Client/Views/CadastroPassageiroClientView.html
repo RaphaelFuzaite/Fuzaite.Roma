@@ -1,8 +1,102 @@
-<div class="ui container basic segment">
-     
-     <a class="ui icon black button" href="/#!/Passageiros">
+<div class="ui container basic segment" ng-controller="CadastroPassageiroClientController">
+    
+    <!--a class="ui icon black button" href="/#!/Passageiros">
         <i class="list layout icon"></i>
         LISTA
-    </a>
+    </a-->
+    
+    <div class="cadastro passageiro tabs">
+        <div class="ui secondary pointing menu no-animated">
+            <a class="item" ng-class="{active: Sections[0]}" ng-click="ChangeSection('0')">Dados Pessoais</a>
+            <a class="item" ng-class="{active: Sections[1]}" ng-click="ChangeSection('1')">Responsáveis</a>
+            <a class="item" ng-class="{active: Sections[2]}" ng-click="ChangeSection('2')">Localização</a>
+            <a class="item" ng-class="{active: Sections[3]}" ng-click="ChangeSection('3')">Instituições</a>
+        </div>
+        <div class="ui tab segment" ng-class="{active: Sections[0]}">
+            <div class="ui centered grid">
+                <div class="eleven wide column">
+                    <form class="ui form" ng-form-service="FormPassageiros" name="{{FormPassageiros.Name}}" ng-class="{'loading':FormPassageiros.Loading}">
+                        <div class="field">
+                            <label>Nome</label>
+                            <div class="two fields">
+                                <div class="field">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="Primeiro Nome" id="PrimeiroNome" name="PrimeiroNome" ng-model="FormPassageiros.Model.PrimeiroNome">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui icon input">
+                                        <input type="text" placeholder="Último Nome" id="UltimoNome" name="UltimoNome" ng-model="FormPassageiros.Model.UltimoNome">
+                                        <i class="user icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>Data de nascimento</label>
+                                    <div class="ui icon input">
+                                        <input type="text" placeholder="Data de Nascimento" id="DataDeNascimento" name="DataDeNascimento" ng-model="FormPassageiros.Model.DataDeNascimento" ui-date-mask>
+                                        <i class="birthday icon"></i>
+                                    </div>
+                                </div>                                
+                                
+                                <div class="field">
+                                    <label>Como nos conheceu</label>
+                                    <div class="ui input">
+                                        <select class="ui dropdown" ng-model="FormPassageiros.Model.CategoriaDeUsuario" id="CategoriaDeUsuario" name="CategoriaDeUsuario">
+                                            <option value="">Selecione uma opção</option>
+                                            <option value="Folhetos">Folhetos</option>
+                                            <option value="Internet">Internet</option>
+                                            <option value="Veículo">Veículo</option>
+                                            <option value="Instituição de Ensino">Instituição de Ensino</option>
+                                            <option value="Amigos">Amigos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="field">
+                                    <label>Gênero</label>
+                                    <div class="inline fields">
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                            <input type="radio" name="genero" checked="" tabindex="0" class="hidden">
+                                            <label>Masculino</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                            <input type="radio" name="genero" tabindex="0" class="hidden">
+                                            <label>Feminino</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                        
+                        
+                        
+                        <div class="ui text align right">
+                            <div class="ui orange submit button">
+                                SALVAR
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="ui tab segment" ng-class="{active: Sections[1]}">
+            <h2>RESPONSÁVEIS</h2>
+        </div>
+        <div class="ui tab segment" ng-class="{active: Sections[2]}">
+            <h2>LOCALIZAÇÃO</h2>
+        </div>
+        <div class="ui tab segment" ng-class="{active: Sections[3]}">
+            <h2>INSTITUIÇÕES</h2>
+        </div>
+    </div>
      
 </div>
