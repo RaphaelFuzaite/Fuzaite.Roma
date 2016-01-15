@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Passageiro').factory('PassageiroClientModel',['PassageiroResponsavelClientModel', function(PassageiroResponsavel) {
+angular.module('Passageiro').factory('PassageiroClientModel', ['PassageiroResponsavelClientModel', function(PassageiroResponsavel) {
    
    var Passenger = function (data) {
        var self = this;
@@ -19,12 +19,10 @@ angular.module('Passageiro').factory('PassageiroClientModel',['PassageiroRespons
    };
    
    Passenger.prototype.GetRules = function () {
-     return {
-         
-     };
+        return {
+            
+        };
    };
-   
-   Passenger.prototype.Responsavel = new PassageiroResponsavel();
    
    return Passenger;
     

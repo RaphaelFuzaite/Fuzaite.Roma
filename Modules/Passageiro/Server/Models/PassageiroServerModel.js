@@ -69,7 +69,8 @@ var PassageiroSchema = new Schema({
             Complemento: { type: String },
             Bairro: { type: String },
             Cidade: { type: String },
-            UF: { type: String }
+            UF: { type: String },
+            Responsavel: { type: String }
          },
          Telefone: [{
             Numero: { type: Number },
@@ -89,15 +90,17 @@ var PassageiroSchema = new Schema({
         HorarioDeEntrada: { type: String },
         HorarioDeSaida: { type: String },
     }],
-    Endereco:{
+    Endereco: [{
         CEP: { type: String },
         Rua: { type: String },
         Numero: { type: Number },
         Complemento: { type: String },
         Bairro: { type: String },
         Cidade: { type: String },
-        UF: { type: String }
-    },
+        UF: { type: String },
+        Responsavel: { type: String },
+        Principal: { type: Boolean }
+    }],
     Telefone: [{
         Numero: { type: Number },
         Prefixo: { type: Number },
