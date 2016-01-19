@@ -23,8 +23,8 @@ angular.module('Base').config(['$stateProvider', '$urlRouterProvider', function(
       	});
 	}
 ]).config(['$httpProvider', function($httpProvider) {
-		$httpProvider.interceptors.push(['$q', '$location',
-			function($q, $location) {
+		$httpProvider.interceptors.push(['$q', '$location', 'Message',
+			function($q, $location, Message) {
 				return {
 					responseError: function(rejection) {
 						switch (rejection.status) {
@@ -40,10 +40,24 @@ angular.module('Base').config(['$stateProvider', '$urlRouterProvider', function(
 								break;
 						}
 						
-						//Messaging.CompleteDisclaimer(rejection.status, rejection.data);
+						Message.CompleteDisclaimer(rejection.status, rejection.data);
 
 						return $q.reject(rejection);
-					}
+					},
+                    response: function(response) {
+                        switch (response.status){
+                            case 201:
+                                Message.CompleteDisclaimer(response.status, { title: 'Criado!', message: 'Os dados foram gravados com sucesso.' });
+                            break;
+                            case 202:
+                                Message.CompleteDisclaimer(response.status, { title: 'Salvo!', message: 'As atualizações foram salvas.' });
+                            break;
+                            default:
+                            break;    
+                        }
+                        
+                        return response;
+                    }
 				};
 			}
 		]);

@@ -6,7 +6,7 @@ angular.module('Passageiro').factory('PassageiroLocalizacaoClientModel', functio
       var self = this;
       
       if(angular.isObject(data)){
-          
+        self.Rua = data.Rua;   
       }
       
       return self;  
@@ -17,7 +17,7 @@ angular.module('Passageiro').factory('PassageiroLocalizacaoClientModel', functio
             endereco: {
                 
             }
-        }  
+        };
     };
     
     return LocationPassenger;

@@ -61,7 +61,21 @@ angular.module('Passageiro').factory('PassageiroResponsavelClientModel', functio
 					type: 'checked',
 					prompt: 'Selecione uma opção'
 				}]
-			}
+			},
+            documentoDeIdentificacao: {
+                identifier: 'DocumentoDeIdentificacao',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Selecione uma opção'   
+                }]
+            },
+            numeroDoDocumento: {
+                identifier: 'NumeroDoDocumento',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Campo obrigatório'
+                }]
+            }
             
         };
     };

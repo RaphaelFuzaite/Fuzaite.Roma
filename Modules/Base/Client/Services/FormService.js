@@ -23,7 +23,13 @@ angular.module('Base').service('Form', ['$http', '$injector', '$q', function ($h
 
 				self.Element = ApplicationConfiguration.VendorsInitializer.Form.ValidationByElement(element, self.Model.GetRules());	
 				self.Element.bind('submit', function(event) {
-					if (!self.IsValid()) return false;
+					if (!self.IsValid()) {
+                        return false;
+                    }
+                    
+                    if (self.EnableAutoSaveMethod) {
+                        self.SelectSaveRequestMethod();
+                    }
 	
 					self.AlternateFormLoading();	
 					$http({ method: self.Action.Method, url: self.Action.Url, data: self.Model })
@@ -32,16 +38,19 @@ angular.module('Base').service('Form', ['$http', '$injector', '$q', function ($h
 					.finally(function() {
 						self.AlternateFormLoading();
 					});
+                    
+                    return false;
 				});
 			});
 			
 			self.Action = {
 				Url: data.Url,
-				Method: data.Method || 'post',
+				Method: data.Method || 'GET',
 				Success: data.Success || function(){ },
 				Error: data.Error || function(){ }
 			};
 			
+            self.EnableAutoSaveMethod = data.EnableAutoSaveMethod || false;
 			self.Loading = false;
 			self.IsValid = function() {
 				return self.Element.form('validate form');
@@ -53,6 +62,10 @@ angular.module('Base').service('Form', ['$http', '$injector', '$q', function ($h
 		Form.prototype.AlternateFormLoading = function() {
 			this.Loading = !this.Loading;	
 		};
+        
+        Form.prototype.SelectSaveRequestMethod = function() {
+            this.Action.Method = this.Model.hasOwnProperty('_id') ? 'POST' : 'PUT';
+        };
 		
 		return Form;
 	}

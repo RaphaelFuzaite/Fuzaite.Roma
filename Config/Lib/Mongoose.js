@@ -8,6 +8,9 @@ var config = require('../Config'),
   path = require('path'),
   mongoose = require('mongoose');
 
+// Replace error messages  
+mongoose.Error.messages.String.enum  = "O valor `{VALUE}` não é válido para o campo `{PATH}`.";
+
 // Load the mongoose models
 module.exports.loadModels = function () {
   // Globbing model files

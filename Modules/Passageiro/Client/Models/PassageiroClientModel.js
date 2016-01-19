@@ -20,7 +20,41 @@ angular.module('Passageiro').factory('PassageiroClientModel', ['PassageiroRespon
    
    Passenger.prototype.GetRules = function () {
         return {
-            
+            primeiroNome: {
+                identifier: 'PrimeiroNome',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Campo obrigatório'
+                }]
+            },
+            ultimoNome: {
+                identifier: 'UltimoNome',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Campo obrigatório'
+                }]
+            },
+            dataDeNascimento: {
+				identifier: 'DataDeNascimento',
+				rules: [{
+					type: 'empty',
+					prompt: 'Campo obrigatório'
+				}]
+			},
+            comoNosConheceu: {
+                identifier: 'ComoNosConheceu',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Selecione uma opção'   
+                }]
+            },
+            genero: {
+				identifier: 'Genero',
+				rules: [{
+					type: 'checked',
+					prompt: 'Selecione uma opção'
+				}]
+            }
         };
    };
    

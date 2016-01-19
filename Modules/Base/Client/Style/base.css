@@ -592,3 +592,147 @@ header nav.attached.segment {
 .text.align.right {
     text-align: right;
 }
+
+.message-queue.close {
+    margin-top: 1px;
+    max-height: 0px;
+    overflow: hidden;
+    -webkit-transition: 400ms linear all;
+    -moz-transition: 400ms linear all;
+    -ms-transition: 400ms linear all;
+    -o-transition: 400ms linear all;
+    transition: 400ms linear all;
+}
+
+.message-queue.open {
+    margin-top: 1px;
+    max-height: 83px;
+    overflow: hidden;
+    -webkit-transition: 400ms linear all;
+    -moz-transition: 400ms linear all;
+    -ms-transition: 400ms linear all;
+    -o-transition: 400ms linear all;
+    transition: 400ms linear all;
+}
+
+.message-queue .ui.message {
+    border-radius: 0px;
+}
+
+.message-queue .ui.message:not(.ng-hide) {
+   margin: 1px 0 0 0; 
+}
+
+.message-queue .ui.message .header + p {
+    font-size: 1.1em;
+    margin-top: 0em; 
+}
+
+.message-queue .ui.icon.message > i.icon {
+    font-size: 4em;
+    margin-right: 0.2em;
+    opacity: 1;
+}
+
+.message-queue .ui.icon.message button.icon {
+    font-size: 0.8em;
+    opacity: 0.9;   
+}
+
+.message-queue .ui.success.message {
+    background-color: #1abc9c !important;
+    color: #FFF;
+}
+
+.message-queue .ui.negative.message {
+    background-color: #e74c3c !important;
+    color: #FFF;
+}
+
+.message-queue .ui.info.message {
+    background-color: #3498db !important;
+    color: #FFF;
+}
+
+.message-queue .ui.warning.message {
+    background-color: #f39c12 !important;
+    color: #FFF;
+}
+
+.message-queue .ui.success.message button.icon {
+    background-color: #e74c3c !important;
+    color: #FFF !important;
+}
+
+.message-queue .ui.negative.message button.icon {
+    background-color: #3498db !important;
+    color: #FFF !important;
+}
+
+.message-queue .ui.info.message button.icon {
+    background-color: #f39c12 !important;
+    color: #FFF !important;
+}
+
+.message-queue .ui.warning.message button.icon {
+    background-color: #1abc9c !important;
+    color: #FFF !important;
+}
+
+.message-queue .ui.success.message > i.icon:before {
+    content: "\f058";
+}
+
+.message-queue .ui.negative > i.icon:before {
+    content: "\f057";
+}
+
+.message-queue .ui.info.message > i.icon:before {
+    content: "\f05a";
+}
+
+.message-queue .ui.warning > i.icon:before {
+    content: "\f06a";
+}
+
+.message-queue .ng-enter.ng-enter-active, 
+.message-queue .ng-leave,
+.message-queue .ng-hide-animate {
+    top: 0px;
+	opacity: 1;
+	-webkit-transition: 400ms linear all;
+    -moz-transition: 400ms linear all;
+    -ms-transition: 400ms linear all;
+    -o-transition: 400ms linear all;
+    transition: 400ms linear all;
+}
+
+.message-queue .ng-hide-animate ~ .message {
+    top: 0px;
+	-webkit-transition: 400ms linear all;
+    -moz-transition: 400ms linear all;
+    -ms-transition: 400ms linear all;
+    -o-transition: 400ms linear all;
+    transition: 400ms linear all;
+}
+
+.message-queue .ng-leave.ng-leave-active,
+.message-queue .ng-enter,
+.message-queue .ng-hide.ng-hide-add-active {
+    top: -10px;
+	opacity: 0;
+	-webkit-transition: 400ms linear all;
+    -moz-transition: 400ms linear all;
+    -ms-transition: 400ms linear all;
+    -o-transition: 400ms linear all;
+    transition: 400ms linear all;
+}
+
+.message-queue .ng-hide.ng-hide-add-active ~ .message {
+    top: -110px;
+	-webkit-transition: 400ms linear all;
+    -moz-transition: 400ms linear all;
+    -ms-transition: 400ms linear all;
+    -o-transition: 400ms linear all;
+    transition: 400ms linear all;
+}

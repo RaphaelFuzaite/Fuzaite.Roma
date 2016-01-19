@@ -39,7 +39,9 @@ var PassageiroSchema = new Schema({
         GrauDeParentesco: { type: String },
         DataDeNascimento: { type: Date, validate: [validateMajority, 'O responsável deve ser maior de idade'] },
         ResponsavelFinanceiro: { type: Boolean },
-        Genero: { type: String, enum: ['Masculino', 'Feminino'] }
+        Genero: { type: String, enum: ['Masculino', 'Feminino'] },
+        DocumentoDeIdentificacao: { type: String, required: 'Informe o tipo de documento de identificação' },
+        NumeroDoDocumento: { type: String, required: 'Informe o número do documento de identificação selecionado'}
     }],
     Condutor: {
         type: Schema.ObjectId,

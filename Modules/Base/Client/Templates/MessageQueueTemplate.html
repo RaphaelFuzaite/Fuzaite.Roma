@@ -1,0 +1,15 @@
+<div class="message-queue {{ Mensagens.length > 0 ? 'open' : 'close' }}">
+    <div class="ui {{ Mensagem.Class }} icon message" ng-animate="'animate'" ng-repeat="Mensagem in Mensagens" ng-show="Mensagem.Visivel">
+        <i class="icon"></i>
+        <div class="content">
+            <div class="ui header">
+                {{ Mensagem.Id+1 | numberFixedLen:3 }} - {{ Mensagem.Titulo }}
+            </div>
+            <p>{{ Mensagem.Texto }}</p>
+        </div>
+        <button class="ui right floated labeled icon button" ng-click="MessageService.DismissMessage($index)">
+            FECHAR
+            <i class="close icon"></i>
+        </button>
+    </div>
+</div>

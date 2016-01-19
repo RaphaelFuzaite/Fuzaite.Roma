@@ -23,26 +23,29 @@ angular.module('Passageiro').controller('CadastroPassageiroClientController', ['
         $scope.FormPassageirosDadosPessoais = new Form({
             Name: 'PassengersPersonalDataFormEdit',
             Model: Passageiro,
-            Url: '/api/Passengers/Save',
-            Method: 'PUT',
+            Url: '/api/Passenger/Save',
+            //Method: 'PUT',
+            EnableAutoSaveMethod: true,
             Success: function(response) {
-                $location.path('/Passageiros');
+                Passageiro._id = response._id;
+                console.log(response);
             },
             Error: function(response) {
-                $scope.Error = response.message;
+                console.log(response);
             }
         });
         
         $scope.FormPassageirosResponsaveis = new Form({
             Name: 'PassengersResponsableFormEdit',
             Model: Passageiro,
-            Url: '/api/Passengers/Save',
-            Method: 'PUT',
+            Url: '/api/Passenger/Save',
+            //Method: 'POST',
+            EnableAutoSaveMethod: true,
             Success: function(response) {
                 $location.path('/Passageiros');
             },
             Error: function(response) {
-                $scope.Error = response.message;
+                console.log(response);
             }
         });        
 	}

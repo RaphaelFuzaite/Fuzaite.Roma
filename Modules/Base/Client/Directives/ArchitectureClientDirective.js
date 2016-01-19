@@ -53,4 +53,19 @@ angular.module('Base').directive('architectureAuthentication', [function() {
 				}
 			}
 		};
+}]).directive('architectureMessageQueue', ['Message', function(Message){
+        return {
+			restrict: 'A',
+			replace: true,
+			templateUrl: '/Modules/Base/Templates/MessageQueueTemplate.html',
+			controller: ['$scope', function ($scope) {
+				
+				$scope.MessageService = Message;
+				
+				$scope.$watchCollection('MessageService.GetDisclaimer()', function (value) {
+					$scope.Mensagens = value;
+				});
+
+			}]
+		};
 }]);
