@@ -39,7 +39,6 @@ exports.Update = function(req, res) {
     passageiro.update(query, passageiro, function(err){
        if (err) {
            var errorResponse = errorHandler.GetErrorResponse(400, err);
-           console.log('ERRORRESPONSE ', errorResponse);
            res.status(errorResponse.statusCode).send(errorResponse.data);
        } else {
            res.status(202).json(passageiro);
