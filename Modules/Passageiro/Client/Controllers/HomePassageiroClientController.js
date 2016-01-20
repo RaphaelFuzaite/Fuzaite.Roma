@@ -6,21 +6,15 @@ angular.module('Passageiro').controller('HomePassageiroClientController', ['$sco
         /*$scope.Grid = new GridService({
             Url: '/api/Passenger/List'
         });*/
-        
-        function getData () {
-            return 
-            [
-                {name: 'Moroni', age: 50},
-                {name: 'Isla', age: 59}
-            ];
-        }        
+           
         
         $scope.TableParams = new NgTableParams();
-        $scope.TableParams.settings(
-            { 
-                data: getData()
-            }
-        );
+        $scope.TableParams.settings({ 
+            data: [
+                {name: 'Moroni', age: 50},
+                {name: 'Isla', age: 59}
+            ]
+        });
         
         console.log($scope.TableParams);
         $scope.TableParams.reload();
