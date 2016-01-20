@@ -4,10 +4,11 @@
         <i class="plus icon"></i>
     </a>
     
-    <table class="ui grey table" ng-table="TableParams">
+    <table class="ui grey table" ng-table="Grid.TableParams">
         <tr ng-repeat="passageiro in $data">
-            <td title="'name'">{{ passageiro.name }}</td>
-            <td title="'age'">{{ passageiro.age }}</td>
+            <td data-title="'Nome'">{{ passageiro.PrimeiroNome + ' ' + passageiro.UltimoNome }}</td>
+            <td data-title="'Data de Nascimento'">{{ passageiro.DataDeNascimento | date }}</td>
+            <td data-title="'Inscrição'">{{ passageiro.DataDeInscricao | date }}</td>
         </tr>
     </table>
 </div>

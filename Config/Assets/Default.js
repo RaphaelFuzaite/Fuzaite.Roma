@@ -4,8 +4,7 @@ module.exports = {
   Client: {
     Lib: {
       Style: [
-        'Public/Lib/semantic-ui/dist/semantic.css',
-        'Public/Lib/ng-table/dist/ng-table.css'
+        'Public/Lib/semantic-ui/dist/semantic.css'
       ],
       Script: [
         'Public/Lib/jquery/dist/jquery.js',

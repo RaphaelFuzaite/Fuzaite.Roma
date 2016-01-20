@@ -5,12 +5,7 @@ angular.module('Base').service('GridService', ['$http', '$q', 'NgTableParams', f
 		var Grid = function(data) {
 			var self = this;
 
-            self.TableParams = new NgTableParams({},{ dataset: 
-                [
-                    {name: 'Moroni', age: 50},
-                    {name: 'Isla', age: 59}
-                ]
-            });
+            self.TableParams = new NgTableParams();
 			self.Loading = false;
             self.AlternateGridLoading();
             self.Resources = {
@@ -20,13 +15,17 @@ angular.module('Base').service('GridService', ['$http', '$q', 'NgTableParams', f
                     if (angular.isUndefined(response)) {
                         return false;
                     }
-                    /*self.Data = response;
-                    self.TableParams = new NgTableParams({},{
-                        dataset: self.Data
-                    });*/
+                    self.Data = response;
+                    self.TableParams = new NgTableParams(self.Params,{
+                        data: self.Data
+                    });
                 },
 				Error: data.Error || function(){ }
 			};
+            
+            self.Params = {
+                count: 1
+            };
 
             $http({ 
                 method: self.Resources.Method, 

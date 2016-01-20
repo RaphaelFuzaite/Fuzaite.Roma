@@ -73,3 +73,137 @@ a {
 .inline.fields > .field {
     line-height: 35px;
 }
+
+.ng-table-pagination {
+    margin: 0;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+    float: right;
+    margin: 0 0 0 .5rem;
+    font-size: 1rem;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    background: #fff;
+    font-weight: 400;
+    border: 1px solid rgba(34,36,38,.15);
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    border-radius: .28571429rem;
+    min-height: 2.85714286em;
+    padding: 0px; 
+}
+
+.ng-table-pagination li {
+    list-style-type: none;
+    cursor: pointer;
+    background: rgba(0,0,0,.03);
+    color: rgba(0,0,0,.95);
+}
+
+.ng-table-pagination li a {
+    min-width: 3em;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    vertical-align: middle;
+    line-height: 1;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: 0 0;
+    padding: .92857143em 1.14285714em;
+    text-transform: none;
+    color: rgba(0,0,0,.87);
+    font-weight: 400;
+    -webkit-transition: background .1s ease,box-shadow .1s ease,color .1s ease;
+    transition: background .1s ease,box-shadow .1s ease,color .1s ease;
+}
+
+.ng-table-pagination li a:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,.03);
+    color: rgba(0,0,0,.95);
+}
+
+.ng-table-pagination li a:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background: rgba(34,36,38,.1);
+}
+
+.ng-table-pagination >li:first-child {
+    border-radius: .28571429rem 0 0 .28571429rem;
+}
+
+.ng-table-pagination li a[ng-switch-when="prev"],
+.ng-table-pagination li a[ng-switch-when="next"] {
+    color: transparent;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    vertical-align: top;
+    opacity: .9;
+    float: none;
+    font-size: 1em;
+    display: inline-block;
+    font-family: Icons;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: inherit;
+    text-align: center;
+    speak: none;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.ng-table-pagination li a[ng-switch-when="prev"]:after {
+    content: "\f053";
+    color: rgba(0,0,0,.87);
+    margin-left: -2px;
+}
+
+.ng-table-pagination li a[ng-switch-when="next"]:after {
+    content: "\f054";
+    color: rgba(0,0,0,.87);
+}
+
+.ng-table-pagination li.active,
+.ng-table-pagination li.active:hover {
+    background: rgba(0,0,0,0.1);
+    color: rgba(0,0,0,.95);
+    font-weight: 400;
+    box-shadow: none;
+}
+
+.ng-table-pagination li.disabled a,
+.ng-table-pagination li.disabled a:hover {
+    cursor: default;
+    background-color: transparent!important;
+}
+
+.ng-table-pagination li.disabled a[ng-switch-when="prev"]:after,
+.ng-table-pagination li.disabled a[ng-switch-when="next"]:after {
+    color: rgba(0,0,0,.25);
+}
