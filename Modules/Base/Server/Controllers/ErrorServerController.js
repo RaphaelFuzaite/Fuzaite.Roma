@@ -17,6 +17,25 @@ var GetUniqueErrorMessage = function (err) {
 
 exports.GetErrorResponse = function (statusCode, err) {
     
+    var message = '';
+
+    if (err.code) {
+        switch (err.code) {
+            case 11000:
+            case 11001:
+                message = new GetUniqueErrorMessage(err);
+                break;
+            default:
+                message = 'Algo deu errado no acesso aos dados!';
+        }
+    } else {
+        for (var errName in err.errors) {
+            if (err.errors[errName].name === 'ValidatorError') statusCode = 412;
+            if (err.errors[errName].name === 'ValidationError') statusCode = 406; 
+            if (err.errors[errName].message) message = err.errors[errName].message;
+        }
+    }
+    
     var title = '';
     
     switch (statusCode) {
@@ -38,8 +57,14 @@ exports.GetErrorResponse = function (statusCode, err) {
         case 403: // FORBIDEN
             title = 'Acesso proibido';
             break;
+        case 406: // UNACCEPTABLE
+            title = 'Erro do validador';
+            break;
         case 408: // REQUEST TIMEOUT
             title = 'Tempo de chamada excedido';
+            break;
+        case 412: // PRECONDITION FAILED
+            title = 'Erro de validação';
             break;
         case 500: // SERVER ERROR
             title = 'Erro no servidor';
@@ -55,23 +80,6 @@ exports.GetErrorResponse = function (statusCode, err) {
             break;
         default:
             break;
-    }
-    
-    var message = '';
-
-    if (err.code) {
-        switch (err.code) {
-            case 11000:
-            case 11001:
-                message = new GetUniqueErrorMessage(err);
-                break;
-            default:
-                message = 'Algo deu errado!';
-        }
-    } else {
-        for (var errName in err.errors) {
-            if (err.errors[errName].message) message = err.errors[errName].message;
-        }
     }
     
     return {

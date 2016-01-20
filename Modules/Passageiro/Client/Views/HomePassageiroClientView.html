@@ -1,8 +1,13 @@
-<div class="ui container basic segment">
-    
+<div class="ui container basic segment" ng-controller="HomePassageiroClientController">
     <a class="ui icon red button right floated" href="/#!/Passageiros/Cadastrar">
         NOVO
         <i class="plus icon"></i>
     </a>
-     
+    
+    <table class="ui grey table" ng-table="TableParams">
+        <tr ng-repeat="passageiro in $data">
+            <td title="'name'">{{ passageiro.name }}</td>
+            <td title="'age'">{{ passageiro.age }}</td>
+        </tr>
+    </table>
 </div>

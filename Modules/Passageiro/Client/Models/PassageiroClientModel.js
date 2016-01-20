@@ -51,7 +51,7 @@ angular.module('Passageiro').factory('PassageiroClientModel', ['PassageiroRespon
             genero: {
 				identifier: 'Genero',
 				rules: [{
-					type: 'checked',
+					type: 'empty',
 					prompt: 'Selecione uma opção'
 				}]
             }

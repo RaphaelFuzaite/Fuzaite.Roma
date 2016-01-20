@@ -23,7 +23,6 @@ exports.Create = function(req, res) {
     passageiro.save(function(err){
        if (err) {
            var errorResponse = errorHandler.GetErrorResponse(400, err);
-           console.log(errorResponse.data);
            res.status(errorResponse.statusCode).send(errorResponse.data);
        } else {
            res.status(201).json(passageiro);

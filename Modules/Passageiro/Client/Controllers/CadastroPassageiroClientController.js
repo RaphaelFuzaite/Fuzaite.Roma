@@ -28,10 +28,8 @@ angular.module('Passageiro').controller('CadastroPassageiroClientController', ['
             EnableAutoSaveMethod: true,
             Success: function(response) {
                 Passageiro._id = response._id;
-                console.log(response);
             },
             Error: function(response) {
-                console.log(response);
             }
         });
         

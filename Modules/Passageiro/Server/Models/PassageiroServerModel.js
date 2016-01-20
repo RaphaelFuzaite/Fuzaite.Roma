@@ -39,7 +39,7 @@ var PassageiroSchema = new Schema({
         GrauDeParentesco: { type: String },
         DataDeNascimento: { type: Date, validate: [validateMajority, 'O responsável deve ser maior de idade'] },
         ResponsavelFinanceiro: { type: Boolean },
-        Genero: { type: String, enum: ['Masculino', 'Feminino'] },
+        Genero: { type: String, enum: ['M', 'F'] },
         DocumentoDeIdentificacao: { type: String, required: 'Informe o tipo de documento de identificação' },
         NumeroDoDocumento: { type: String, required: 'Informe o número do documento de identificação selecionado'}
     }],
@@ -53,7 +53,7 @@ var PassageiroSchema = new Schema({
     },
     Genero: {
         type: String,
-        enum: ['Masculino', 'Feminino'],
+        enum: ['M', 'F'],
         trim: true,
 		required: 'Qual é o gênero do passageiro?',  
     },
@@ -112,7 +112,7 @@ var PassageiroSchema = new Schema({
     }],
     ComoNosConheceu: {
         type: String,
-        enum: ['Redes Sociais', 'Instituição de Ensino', 'Anúncio', 'Colegas', 'Folhetos']
+        enum: ['Redes Sociais', 'Website', 'Instituição de Ensino', 'Anúncio', 'Colegas', 'Folhetos', 'Veículo']
     }
     
 });

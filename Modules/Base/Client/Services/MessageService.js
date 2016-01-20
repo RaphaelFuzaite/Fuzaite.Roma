@@ -30,6 +30,11 @@ angular.module('Base').service('Message', ['$interval', function ($interval){
             this.Itens = [];
         },
         CompleteDisclaimer: function (statusCode, data) {
+            
+            for (var i = 0; i < this.Itens.length; i++) {
+                this.Itens[i].Duracao = 0;
+            }
+            
             switch (statusCode) {
                 case 201: // CREATED
                 case 202: // ACEPTED
@@ -38,12 +43,14 @@ angular.module('Base').service('Message', ['$interval', function ($interval){
                 case 400: // INVALID
                 case 404: // NOT FOUND
                 case 408: // REQUEST TIMEOUT
+                case 412: // PRECONDITION FAILED
                     this.Itens.push(new ItemMessage(data, _message.MessagingClass.Warning));
                     break;
                 case 401: // UNAUTHORIZED
                 case 403: // FORBIDEN
                     this.Itens.push(new ItemMessage(data, _message.MessagingClass.Info));
                     break;
+                case 406: // UNACCEPTABLE
                 case 500: // SERVER ERROR
                 case 501: // NOT IMPLEMENTED
                 case 502: // UNAVAILABLE
