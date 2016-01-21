@@ -5,7 +5,7 @@ angular.module('Base').directive('architectureAuthentication', [function() {
 			restrict: 'A',
 			replace: true,
 			templateUrl: '/Modules/Base/Templates/AuthenticationTemplate.html',
-			controller: ['$scope', '$http', '$location', 'Form', 'UsuarioClientModel', function($scope, $http, $location, Form, UsuarioClientModel){
+			controller: ['$scope', '$http', 'Form', 'UsuarioClientModel', function($scope, $http, Form, UsuarioClientModel){
 				var Usuario = new UsuarioClientModel();
 				$scope.Authentication = Usuario.Authentication.Get();
 				
@@ -20,7 +20,7 @@ angular.module('Base').directive('architectureAuthentication', [function() {
 					Method: 'POST',
 					Success: function(response) {
 						Usuario.Authentication.Fetch(response);
-						$location.path('/');
+						window.location.reload();
 					},
 					Error: function(response) {
 						$scope.Error = response.message;
@@ -34,7 +34,7 @@ angular.module('Base').directive('architectureAuthentication', [function() {
 					Method: 'PUT',
 					Success: function(response) {
 						Usuario.Authentication.Fetch(response);
-						$location.path('/');
+						window.location.reload();
 					},
 					Error: function(response) {
 						$scope.Error = response.message;

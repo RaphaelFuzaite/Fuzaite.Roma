@@ -4,11 +4,29 @@
         <i class="plus icon"></i>
     </a>
     
-    <table class="ui grey table" ng-table="Grid.TableParams">
-        <tr ng-repeat="passageiro in $data">
-            <td data-title="'Nome'">{{ passageiro.PrimeiroNome + ' ' + passageiro.UltimoNome }}</td>
-            <td data-title="'Data de Nascimento'">{{ passageiro.DataDeNascimento | date }}</td>
-            <td data-title="'Inscrição'">{{ passageiro.DataDeInscricao | date }}</td>
+    <table class="ui inverted teal selectable celled striped table" ng-table="Grid.TableParams">
+        <tr ng-repeat="passageiro in $data" class="selectable">
+            <td 
+                title="'Nome'" 
+                sortable="'PrimeiroNome'"
+                filter="{PrimeiroNome: 'text'}"
+                ng-class="{'six wide':$first}">
+                {{ passageiro.PrimeiroNome + ' ' + passageiro.UltimoNome }}
+            </td>
+            <td 
+                title="'Data de Nascimento'"
+                sortable="'DataDeNascimento'"
+                filter="{DataDeNascimento: 'text'}"
+                ng-class="{'two wide':$first}">
+                {{ passageiro.DataDeNascimento | date }}
+            </td>
+            <td 
+                title="'Inscrição'"
+                sortable="'DataDeInscricao'"
+                filter="{DataDeInscricao: 'text'}"
+                ng-class="{'two wide':$first}">
+                {{ passageiro.DataDeInscricao | date }}
+            </td>
         </tr>
     </table>
 </div>

@@ -23,6 +23,7 @@ var InitVendors = (function () {
 		          transition: 'scale',
 				  on: 'click'
 		        });
+                $('input').attr('autocomplete', 'off');
 				$('.message .close').on('click', function() {
   					$(this).closest('.message').fadeOut();
 				});

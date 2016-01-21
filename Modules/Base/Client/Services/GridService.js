@@ -12,7 +12,7 @@ angular.module('Base').service('GridService', ['$http', '$q', 'NgTableParams', f
 				Url: data.Url,
 				Method: 'GET',
 				Success: data.Success || function(response){
-                    if (angular.isUndefined(response)) {
+                    if (angular.isUndefined(response) && angular.isArray(response)) {
                         return false;
                     }
                     self.Data = response;
