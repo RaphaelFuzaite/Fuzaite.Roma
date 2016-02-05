@@ -64,7 +64,7 @@ angular.module('Base').service('Form', ['$http', '$injector', '$q', function ($h
 		};
         
         Form.prototype.SelectSaveRequestMethod = function() {
-            this.Action.Method = this.Model.hasOwnProperty('_id') ? 'POST' : 'PUT';
+            this.Action.Method = this.Model.hasOwnProperty('_id') ? 'PUT' : 'POST';
         };
 		
 		return Form;

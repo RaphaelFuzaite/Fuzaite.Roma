@@ -10,6 +10,7 @@ module.exports = {
         'Public/Lib/jquery/dist/jquery.js',
         'Public/Lib/angular/angular.js',
         'Public/Lib/angular-ui-router/release/angular-ui-router.js',
+        'Public/Lib/angular-resource/angular-resource.js',
         'Public/Lib/angular-animate/angular-animate.js',
         'Public/Lib/angular-bootstrap/ui-bootstrap.js',
         'Public/Lib/angular-local-storage/dist/angular-local-storage.js',

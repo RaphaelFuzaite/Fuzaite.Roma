@@ -5,7 +5,7 @@
     </a>
     
     <table class="ui inverted teal selectable celled striped table" ng-table="Grid.TableParams">
-        <tr ng-repeat="passageiro in $data" class="selectable">
+        <tr ng-repeat="passageiro in $data" class="selectable" ui-sref="Passageiros.Editar({ PassageiroId: passageiro._id })">
             <td 
                 title="'Nome'" 
                 sortable="'PrimeiroNome'"

@@ -27,7 +27,8 @@
     "angular-breadcrumb": "~0.4.1",
     "angular-chart": "~0.3.2",
     "ng-table": "~0.8.3",
-    "angular-momentjs": "~0.2.2"
+    "angular-momentjs": "~0.2.2",
+    "angular-resource": "~1.5.0"
   },
   "resolutions": {
     "angular": "~1.4"

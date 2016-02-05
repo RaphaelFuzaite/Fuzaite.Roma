@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('Passageiro').controller('CadastroPassageiroClientController', ['$scope','Form', '$location', 'PassageiroClientModel', 
-	function($scope, Form, $location, PassageiroClientModel) {
+angular.module('Passageiro').controller('CadastroPassageiroClientController', ['$scope','Form', '$location', 'PassageiroDeferred' ,'PassageiroClientModel', 
+	function($scope, Form, $location, PassageiroRouter, PassageiroClientModel) {
 		$scope.Sections = {
             0: true,
             1: false,
@@ -23,8 +23,8 @@ angular.module('Passageiro').controller('CadastroPassageiroClientController', ['
         $scope.FormPassageirosDadosPessoais = new Form({
             Name: 'PassengersPersonalDataFormEdit',
             Model: Passageiro,
-            Url: '/api/Passenger/Save',
-            //Method: 'PUT',
+            Url: '/api/Passageiros',
+            //Method: 'POST',
             EnableAutoSaveMethod: true,
             Success: function(response) {
                 Passageiro._id = response._id;
@@ -36,8 +36,8 @@ angular.module('Passageiro').controller('CadastroPassageiroClientController', ['
         $scope.FormPassageirosResponsaveis = new Form({
             Name: 'PassengersResponsableFormEdit',
             Model: Passageiro,
-            Url: '/api/Passenger/Save',
-            //Method: 'POST',
+            Url: '/api/Passageiros',
+            //Method: 'PUT',
             EnableAutoSaveMethod: true,
             Success: function(response) {
                 $location.path('/Passageiros');

@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('Passageiro').controller('HomePassageiroClientController', ['$scope', '$http', 'GridService', 'NgTableParams', 
-    function($scope, $http, GridService, NgTableParams){
+angular.module('Passageiro').controller('HomePassageiroClientController', ['$scope', 'GridService', 
+    function($scope, GridService){
         
         $scope.Grid = new GridService({
-            Url: '/api/Passenger/List'
+            Url: '/api/Passageiros'
         });
         
     }

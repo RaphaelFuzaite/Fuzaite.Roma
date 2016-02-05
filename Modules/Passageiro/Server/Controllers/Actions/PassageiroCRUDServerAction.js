@@ -44,3 +44,21 @@ exports.Update = function(req, res) {
        }
     });
 };
+
+exports.FindByID = function (req, res, next, id) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).send({
+            message: 'Passageiro inválido'
+        });
+    }
+    
+    Passageiro.findById(id).exec(function(err, passageiro) {
+		if (err) {
+            var errorResponse = errorHandler.GetErrorResponse(404, err);
+            res.status(errorResponse.statusCode).send(errorResponse.data);
+		} else {
+            req.passageiro = passageiro;
+			res.json(passageiro);
+		}
+	});
+};

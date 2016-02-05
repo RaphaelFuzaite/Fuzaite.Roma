@@ -3,8 +3,8 @@
 // Init the application configuration module for AngularJS application
 var ApplicationConfiguration = (function () {
   // Init module configuration options
-  var applicationModuleName = 'fuzaite.auckland';
-  var applicationModuleVendorDependencies = ['ui.router', 'ui.bootstrap', 'ngAnimate', 'LocalStorageModule', 'angular-momentjs', 'ui.utils.masks', 'ncy-angular-breadcrumb', 'angularChart', 'ngTable'];
+  var applicationModuleName = 'fuzaite.roma';
+  var applicationModuleVendorDependencies = ['ui.router', 'ui.bootstrap', 'ngResource', 'ngAnimate', 'LocalStorageModule', 'angular-momentjs', 'ui.utils.masks', 'ncy-angular-breadcrumb', 'angularChart', 'ngTable'];
   
   // Add a new vertical module
   var registerModule = function (moduleName, dependencies) {

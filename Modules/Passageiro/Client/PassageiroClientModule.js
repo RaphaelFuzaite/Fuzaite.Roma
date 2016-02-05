@@ -1,3 +1,8 @@
 'use strict';
-
-ApplicationConfiguration.RegisterModule('Passageiro');
+(function(App){
+    
+    App.RegisterModule('Passageiro');
+    App.RegisterModule('Passageiro.Services');
+    App.RegisterModule('Passageiro.Routes', ['ui.router', 'Passageiro.Services']);
+    
+})(ApplicationConfiguration);
